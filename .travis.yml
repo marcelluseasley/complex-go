@@ -4,11 +4,11 @@ services:
   - docker
 
 after_success:
-  - docker build -t marcelluseasley/multi-nginx ./nginx 
-  - docker build -t marcelluseasley/multi-server ./server
+  - docker build -t marcelluseasley/multi-nginx:latest ./nginx 
+  - docker build -t marcelluseasley/multi-server:latest ./server
   #log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub
-  - docker push marcelluseasley/multi-nginx
-  - docker push marcelluseasley/multi-server
+  - docker push marcelluseasley/multi-nginx:latest
+  - docker push marcelluseasley/multi-server:latest
 
